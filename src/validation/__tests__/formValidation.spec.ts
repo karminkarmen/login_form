@@ -1,0 +1,1 @@
+import { validateForm } from '../formValidation';
