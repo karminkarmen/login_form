@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckboxInput /> matches snapshot 1`] = `
+"<ThemeProvider theme={{...}}>
+  <styled.label target=\\"login\\" isUppercased={true}>
+    login
+  </styled.label>
+  <styled.input onChange={[Function: handler]} type=\\"password\\" label=\\"login\\" />
+  <styled.p>
+    Validation info
+  </styled.p>
+</ThemeProvider>"
+`;

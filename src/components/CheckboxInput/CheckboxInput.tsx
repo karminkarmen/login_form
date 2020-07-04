@@ -4,7 +4,7 @@ import theme from '../../configs/theme';
 import LabelStyled from '../common/LabelStyled';
 import CheckboxInputContainerStyled from './CheckboxInputContainerStyled';
 
-type Props = {
+export type Props = {
     name: string;
     label: string;
 }

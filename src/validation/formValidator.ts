@@ -51,3 +51,5 @@ export const formValidator = (): {
         validateEmail
     }
 }
+
+// TODO: use ValidationResult interface

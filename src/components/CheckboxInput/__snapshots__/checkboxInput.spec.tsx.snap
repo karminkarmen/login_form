@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckboxInput /> matches snapshot 1`] = `
+"<ThemeProvider theme={{...}}>
+  <styled.div>
+    <input type=\\"checkbox\\" name=\\"remember\\" id=\\"remember\\" />
+    <styled.label target=\\"remember\\" isUppercased={false}>
+      Remember me
+    </styled.label>
+  </styled.div>
+</ThemeProvider>"
+`;
