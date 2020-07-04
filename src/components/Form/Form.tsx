@@ -1,13 +1,17 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../configs/theme';
-import FormContainerStyled from './FormContainerStyled';
-import FieldsetStyled from '../common/FieldsetStyled';
-import LabelStyled from '../common/LabelStyled'
-import LoginButton from '../LoginButton/LoginButton';
-import TextInput from '../TextInput/TextInput';
+import FormInputs from '../FormInputs/FormInputs';
+import FormMainContainerStyled from './FormMainContainerStyled';
+import ParagraphStyled from '../common/ParagraphStyled';
 import { validateForm } from '../../validation/formValidation';
 import loginHandler from '../../apiMock/loginHandler';
+
+enum logginStages {
+    LOGGED_IN = 'LOGGED_IN',
+    NOT_LOGGED_IN ='NOT_LOGGED_IN',
+    REJECTED = 'REJECTED',
+}
 
 const Form: React.FC = () => {
     const [password, setPassword] = React.useState('');
@@ -15,7 +19,7 @@ const Form: React.FC = () => {
 
     const [emailInfo, setEmailInfo] = React.useState('');
     const [passwordInfo, setPasswordInfo] = React.useState('');
-    const [isLoggedIn, setIfLogged] = React.useState(false);
+    const [isLoggedIn, setIfLogged] = React.useState(logginStages.NOT_LOGGED_IN);
 
     const validator = validateForm();
 
@@ -29,8 +33,8 @@ const Form: React.FC = () => {
         setEmailInfo(emailValidationOutput);
 
         loginHandler(email, password)
-            .then((res: unknown | PromiseLike<void>) => console.log(res))
-            .catch(e => console.log(e));
+            .then((res: unknown | PromiseLike<void>) => setIfLogged(logginStages.LOGGED_IN))
+            .catch(e => setIfLogged(logginStages.REJECTED));
     };
 
     const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
@@ -38,34 +42,20 @@ const Form: React.FC = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <form 
-                method="POST" 
-                action="" 
-                onSubmit={formSubmitHandler} >
-                <FieldsetStyled>
-                    <FormContainerStyled theme={theme}>
-                        <TextInput 
-                            handler={onEmailChange} 
-                            label={'email'} 
-                            type={'text'} 
-                            validationInfo={emailInfo} />
-                        <TextInput 
-                            handler={onPasswordChange} 
-                            label={'password'} 
-                            type={'password'} 
-                            validationInfo={passwordInfo} />
-                        <div>
-                            <input type="checkbox" name="remember" id="remember" />
-                            <LabelStyled 
-                                target={'remember'} 
-                                isUppercased={false} >
-                                Remember me
-                            </LabelStyled>
-                        </div>
-                    </FormContainerStyled>
-                    <LoginButton />
-                </FieldsetStyled>
-            </form>
+            <FormMainContainerStyled>
+            { (isLoggedIn === logginStages.REJECTED || isLoggedIn === logginStages.NOT_LOGGED_IN) && 
+                <FormInputs 
+                    formSubmitHandler={formSubmitHandler}
+                    onEmailChange={onEmailChange} 
+                    onPasswordChange={onPasswordChange} 
+                    emailInfo={emailInfo} 
+                    passwordInfo={passwordInfo}
+                />
+            }
+            {(isLoggedIn === logginStages.LOGGED_IN) && 
+                <ParagraphStyled>login successful</ParagraphStyled>
+            }
+            </FormMainContainerStyled>
         </ThemeProvider>
     );
 };
