@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { centerized } from '../../configs/mixins';
 
 const FormMainContainerStyled = styled.div`
-    flex-direction: column;
     ${centerized}
+    flex-direction: column;
     border-radius:  ${props => props.theme.radius.maximum};
     background: ${props => props.theme.colors.secondary};
     width: ${props => props.theme.width.mainElementWidth};

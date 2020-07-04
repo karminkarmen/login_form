@@ -21,10 +21,10 @@ const theme = {
     fontSizes: {
         normal: '0.8rem',
         medium: '1rem',
-        big: '5rem',
+        big: '1.5rem',
     },
     fontFamilies: {
-        lato: 'Lato', 
+        main: 'Lato', 
     },
     transitionTime: {
         default: '0.3s'

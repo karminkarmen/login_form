@@ -14,7 +14,7 @@ const LabelStyled = styled.label.attrs((props: Props) => ({
     font-weight: bold;
     letter-spacing: ${props => props.theme.letterSpacing.normal};
     font-size: ${props => props.theme.fontSizes.normal};
-    font-family: ${props => props.theme.fontFamilies.lato};
+    font-family: ${props => props.theme.fontFamilies.main};
 `;
 
 export default LabelStyled;

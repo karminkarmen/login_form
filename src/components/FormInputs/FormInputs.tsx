@@ -21,24 +21,28 @@ const FormInputs: React.FC<Props> = ({ formSubmitHandler, onEmailChange, emailIn
             <form 
                 method="POST" 
                 action="" 
-                onSubmit={formSubmitHandler} >
+                onSubmit={formSubmitHandler} 
+            >
                 <FieldsetStyled>
                     <FormContainerStyled theme={theme}>
                         <TextInput 
                             handler={onEmailChange} 
                             label={'email'} 
                             type={'text'} 
-                            validationInfo={emailInfo} />
+                            validationInfo={emailInfo} 
+                        />
                         <TextInput 
                             handler={onPasswordChange} 
                             label={'password'} 
                             type={'password'} 
-                            validationInfo={passwordInfo} />
+                            validationInfo={passwordInfo} 
+                        />
                         <div>
                             <input type="checkbox" name="remember" id="remember" />
                             <LabelStyled 
                                 target={'remember'} 
-                                isUppercased={false} >
+                                isUppercased={false} 
+                            >
                                 Remember me
                             </LabelStyled>
                         </div>

@@ -3,12 +3,12 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../../configs/theme';
 import FormInputs from '../FormInputs/FormInputs';
 import FormMainContainerStyled from './FormMainContainerStyled';
-import ParagraphStyled from '../common/ParagraphStyled';
+import LoginConfirmation from '../LoginConfirmation/LoginConfirmation';
 import { validateForm } from '../../validation/formValidation';
 import loginHandler from '../../apiMock/loginHandler';
 
 enum logginStages {
-    LOGGED_IN = 'LOGGED_IN',
+    AUTHORIZED = 'AUTHORIZED',
     NOT_LOGGED_IN ='NOT_LOGGED_IN',
     REJECTED = 'REJECTED',
 }
@@ -33,7 +33,7 @@ const Form: React.FC = () => {
         setEmailInfo(emailValidationOutput);
 
         loginHandler(email, password)
-            .then((res: unknown | PromiseLike<void>) => setIfLogged(logginStages.LOGGED_IN))
+            .then((res: unknown | PromiseLike<void>) => setIfLogged(logginStages.AUTHORIZED))
             .catch(e => setIfLogged(logginStages.REJECTED));
     };
 
@@ -52,9 +52,7 @@ const Form: React.FC = () => {
                     passwordInfo={passwordInfo}
                 />
             }
-            {(isLoggedIn === logginStages.LOGGED_IN) && 
-                <ParagraphStyled>login successful</ParagraphStyled>
-            }
+            {(isLoggedIn === logginStages.AUTHORIZED) && <LoginConfirmation />}
             </FormMainContainerStyled>
         </ThemeProvider>
     );
