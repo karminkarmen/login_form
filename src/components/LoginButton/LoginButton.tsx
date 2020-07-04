@@ -4,14 +4,10 @@ import theme from '../../configs/theme';
 import LoginButtonStyled from './LoginButtonStyled';
 import LoginButtonContainerStyled from './LoginButtonContainerStyled';
 
-type Props = {
-    btnHandler: () => void;
-}
-
-const LoginButton: React.FC<Props> = ({btnHandler}) => {
+const LoginButton: React.FC = () => {
     return (
         <ThemeProvider theme={theme}>
-            <LoginButtonContainerStyled onClick={btnHandler}>
+            <LoginButtonContainerStyled>
                 <LoginButtonStyled />
             </LoginButtonContainerStyled>
         </ThemeProvider>

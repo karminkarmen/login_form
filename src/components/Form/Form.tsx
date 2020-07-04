@@ -7,6 +7,7 @@ import LabelStyled from '../common/LabelStyled'
 import LoginButton from '../LoginButton/LoginButton';
 import TextInput from '../TextInput/TextInput';
 import { validateForm } from '../../validation/formValidation';
+import loginHandler from '../../apiMock/loginHandler';
 
 const Form: React.FC = () => {
     const [password, setPassword] = React.useState('');
@@ -14,15 +15,22 @@ const Form: React.FC = () => {
 
     const [emailInfo, setEmailInfo] = React.useState('');
     const [passwordInfo, setPasswordInfo] = React.useState('');
+    const [isLoggedIn, setIfLogged] = React.useState(false);
 
     const validator = validateForm();
 
-    const btnHandler= () => {
+    const formSubmitHandler = (e: any) => {
+        e.preventDefault();
+
         const emailValidationOutput = validator.validateEmail(email);
         const passwordValidationOutput = validator.validatePassword(password);
 
         setPasswordInfo(passwordValidationOutput);
         setEmailInfo(emailValidationOutput);
+
+        loginHandler(email, password)
+            .then((res: unknown | PromiseLike<void>) => console.log(res))
+            .catch(e => console.log(e));
     };
 
     const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
@@ -30,27 +38,32 @@ const Form: React.FC = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <form method="POST" action="">
+            <form 
+                method="POST" 
+                action="" 
+                onSubmit={formSubmitHandler} >
                 <FieldsetStyled>
                     <FormContainerStyled theme={theme}>
                         <TextInput 
                             handler={onEmailChange} 
                             label={'email'} 
-                            type={'email'} 
-                            validationInfo={emailInfo} 
-                        />
+                            type={'text'} 
+                            validationInfo={emailInfo} />
                         <TextInput 
                             handler={onPasswordChange} 
                             label={'password'} 
                             type={'password'} 
-                            validationInfo={passwordInfo} 
-                        />
+                            validationInfo={passwordInfo} />
                         <div>
                             <input type="checkbox" name="remember" id="remember" />
-                            <LabelStyled for={'remember'} isUppercased={false}>Remember me</LabelStyled>
+                            <LabelStyled 
+                                target={'remember'} 
+                                isUppercased={false} >
+                                Remember me
+                            </LabelStyled>
                         </div>
                     </FormContainerStyled>
-                    <LoginButton btnHandler={btnHandler}/>
+                    <LoginButton />
                 </FieldsetStyled>
             </form>
         </ThemeProvider>

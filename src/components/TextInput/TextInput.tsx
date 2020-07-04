@@ -16,7 +16,7 @@ const TextInput: React.FC<Props> = ({ handler, label, type, validationInfo }) =>
     return (
         <ThemeProvider theme={theme}>
             <LabelStyled 
-                for={label}
+                target={label}
                 isUppercased={true}
             >
                 {label}

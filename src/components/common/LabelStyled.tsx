@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 type Props = {
-    for: string;
+    target: string;
     isUppercased: boolean;
 }
 
 const LabelStyled = styled.label.attrs((props: Props) => ({
-    for: props.for
+    htmlFor: props.target
 }))<Props>`
     margin: ${props => props.theme.margins.normal};
     color: ${props => props.theme.colors.main};
