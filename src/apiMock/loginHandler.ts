@@ -1,9 +1,12 @@
+import messages from '../constants/messagesConsts';
+import credentials from '../configs/credentials';
+
 const loginHandler = (email: string, password: string): Promise<string> =>  {
     return new Promise((resolve, reject) => {
-        if (email === 'test@test.pl' && password === 'Password1') {
-            resolve('User is logged in');
+        if (email === credentials.email && password === credentials.password) {
+            resolve(messages.loginResolveInfo);
         } else {
-            reject('User is not authorized');
+            reject(messages.loginRejectInfo);
         }
     });
 }

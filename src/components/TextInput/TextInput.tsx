@@ -8,7 +8,7 @@ import ParagraphStyled from '../common/ParagraphStyled';
 type Props = {
     handler: (e: React.ChangeEvent<HTMLInputElement>) => void;
     label: string;
-    type: string;
+    type: 'password' | 'text';
     validationInfo: string;
 }
 

@@ -9,13 +9,11 @@ const StyledTick = styled(Tick)`
     color: ${props => props.theme.colors.main};
     height: ${innerWidthSize / 2}px;
 `
-const LoginConfirmation: React.FC = () => {
-    return (
-        <ThemeProvider theme={theme}>
-            <StyledTick />
-            <ParagraphStyled bigFontSize textSpace>login successful</ParagraphStyled>
-        </ThemeProvider>
-    );
-};
+const LoginConfirmation: React.FC = () => (
+    <ThemeProvider theme={theme}>
+        <StyledTick />
+        <ParagraphStyled bigFontSize textSpace>login successful</ParagraphStyled>
+    </ThemeProvider>
+);
 
 export default LoginConfirmation;

@@ -1,9 +1,9 @@
-import { validateForm } from '../formValidation';
-import { invalidPasswordInfo, invalidEmailInfo } from '../../constants/messagesConsts';
+import { formValidator } from '../formValidator';
+import messages from '../../constants/messagesConsts';
 
 describe('Validation spec', () => {
 
-    const validator = validateForm();
+    const validator = formValidator();
     const emailValidator = validator.validateEmail;
     const passwordValidator = validator.validatePassword;
 
@@ -17,24 +17,25 @@ describe('Validation spec', () => {
     const withoutNumberPassword = 'happy!';
     const validPassword = 'Happy1';
 
+    const { invalidEmailInfo, invalidPasswordInfo } = messages;
 
     // EMAIL
-    it('Does not allow to provide empty email adress', () => {
+    it('Does not allow to provide empty email address', () => {
         const result = emailValidator('');
         expect(result).toContain(invalidEmailInfo);
     })
 
-    it('Does not allow to provide invalid email adress (without .)', () => {
+    it('Does not allow to provide invalid email address (without .)', () => {
         const result = emailValidator(emailWithoutDot);
         expect(result).toContain(invalidEmailInfo);
     })
 
-    it('Does not allow to provide invalid email adress (without @)', () => {
+    it('Does not allow to provide invalid email address (without @)', () => {
         const result = emailValidator(emailWithoutAt);
         expect(result).toContain(invalidEmailInfo);
     })
 
-    it('Allows to provide invalid email adress (without @)', () => {
+    it('Allows to provide valid email address', () => {
         const result = emailValidator(validEmail);
         expect(result).toBe('');
     })
@@ -66,7 +67,7 @@ describe('Validation spec', () => {
         expect(result).toContain(invalidPasswordInfo);
     })
 
-    it('Allow to provide password without number', () => {
+    it('Allow to provide valid password', () => {
         const result = passwordValidator(validPassword);
         expect(result).toBe('');
     })

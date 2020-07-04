@@ -4,9 +4,9 @@ import theme from '../../configs/theme';
 import FormStructure from '../FormStructure/FormStructure';
 import FormMainContainerStyled from './FormMainContainerStyled';
 import LoginConfirmation from '../LoginConfirmation/LoginConfirmation';
-import { validateForm } from '../../validation/formValidation';
+import { formValidator } from '../../validation/formValidator';
 import loginHandler from '../../apiMock/loginHandler';
-import { loginStatuses } from '../../constants/statusesConsts';
+import { LoginStatus } from '../../constants/statusesConsts';
 
 const Form: React.FC = () => {
     const [password, setPassword] = React.useState('');
@@ -14,23 +14,23 @@ const Form: React.FC = () => {
 
     const [emailValidationInfo, setEmailValidationInfo] = React.useState('');
     const [passwordValidationInfo, setPasswordValidationInfo] = React.useState('');
-    const [loginStatus, setLoginStatus] = React.useState(loginStatuses.NOT_LOGGED_IN);
+    const [loginStatus, setLoginStatus] = React.useState(LoginStatus.NOT_LOGGED_IN);
 
-    const validator = validateForm();
+    const { validateEmail, validatePassword } = formValidator();
 
     const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const emailValidationOutput = validator.validateEmail(email);
-        const passwordValidationOutput = validator.validatePassword(password);
+        const emailValidationOutput = validateEmail(email);
+        const passwordValidationOutput = validatePassword(password);
 
         setPasswordValidationInfo(passwordValidationOutput);
         setEmailValidationInfo(emailValidationOutput);
 
         if (emailValidationOutput.length === 0 && passwordValidationOutput.length === 0) {
             loginHandler(email, password)
-                .then((res: unknown | PromiseLike<void>) => setLoginStatus(loginStatuses.AUTHORIZED))
-                .catch(e => setLoginStatus(loginStatuses.REJECTED));
+                .then((res: unknown | PromiseLike<void>) => setLoginStatus(LoginStatus.AUTHORIZED))
+                .catch(e => setLoginStatus(LoginStatus.REJECTED));
         }
     };
 
@@ -40,7 +40,7 @@ const Form: React.FC = () => {
     return (
         <ThemeProvider theme={theme}>
             <FormMainContainerStyled>
-            { (loginStatus === loginStatuses.REJECTED || loginStatus === loginStatuses.NOT_LOGGED_IN) && 
+            { (loginStatus === LoginStatus.REJECTED || loginStatus === LoginStatus.NOT_LOGGED_IN) && 
                 <FormStructure 
                     formSubmitHandler={formSubmitHandler}
                     onEmailChange={onEmailChange} 
@@ -50,7 +50,7 @@ const Form: React.FC = () => {
                     loginStatus={loginStatus}
                 />
             }
-            {(loginStatus === loginStatuses.AUTHORIZED) && <LoginConfirmation />}
+            {(loginStatus === LoginStatus.AUTHORIZED) && <LoginConfirmation />}
             </FormMainContainerStyled>
         </ThemeProvider>
     );

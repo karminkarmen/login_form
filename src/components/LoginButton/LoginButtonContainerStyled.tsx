@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { centerized } from '../../configs/mixins';
+import { centered } from '../../configs/mixins';
 import { innerWidthSize } from '../../constants/themeConsts';
 
 const LoginButtonContainerStyled = styled.div`
-    ${centerized}
+    ${centered}
     position: relative;
     width: ${innerWidthSize / 2}px;
     height: ${innerWidthSize / 2}px;

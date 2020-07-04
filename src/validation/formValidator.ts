@@ -1,4 +1,9 @@
-import { invalidPasswordInfo, invalidEmailInfo } from '../constants/messagesConsts';
+import messages from '../constants/messagesConsts';
+
+interface ValidationResult {
+    isValid: boolean;
+    errorMessage?: string;
+}
 
 const validatePassword = (password: string): string => {
     const validationOutput = [];
@@ -20,7 +25,7 @@ const validatePassword = (password: string): string => {
     }
 
     if (validationOutput.length !== 0) {
-        return `${invalidPasswordInfo} Your password needs: ${validationOutput.join(', ')}.`
+        return `${messages.invalidPasswordInfo} Your password needs: ${validationOutput.join(', ')}.`
     }
 
     return validationOutput.join('\r\n');
@@ -31,15 +36,15 @@ const validateEmail = (email: string): string => {
     const validationOutput = [];
 
     if (!emailRegx.test(email)) {
-        validationOutput.push(invalidEmailInfo);
+        validationOutput.push(messages.invalidEmailInfo);
     }
 
     return validationOutput.join('\r\n');
 }
 
-export const validateForm = (): {
-    validatePassword: any,
-    validateEmail: any
+export const formValidator = (): {
+    validatePassword: (password: string) => string,
+    validateEmail: (password: string) => string,
 } => {
     return {
         validatePassword,

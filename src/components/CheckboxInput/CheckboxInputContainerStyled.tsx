@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { centerized } from '../../configs/mixins';
+import { centered } from '../../configs/mixins';
 
 const CheckboxInputContainerStyled = styled.div`
-    ${centerized}
+    ${centered}
     margin: ${props => props.theme.margins.normal};
 `;
 

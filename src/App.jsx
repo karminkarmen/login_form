@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Form from './components/Form/Form';
 import theme from './configs/theme';
-import { centerized } from './configs/mixins';
+import { centered } from './configs/mixins';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 const AppStyledContainer = styled.div`
-    ${centerized}
+    ${centered}
     height: 100vh;
 `;
 

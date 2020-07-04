@@ -9,20 +9,18 @@ type Props = {
     label: string;
 }
 
-const CheckboxInput: React.FC<Props> = ({ name, label }) => {
-    return (
-        <ThemeProvider theme={theme}>
-            <CheckboxInputContainerStyled>
-                <input type="checkbox" name={name} id={name} />
-                <LabelStyled 
-                    target={name} 
-                    isUppercased={false} 
-                >
-                    {label}
-                </LabelStyled>
-            </CheckboxInputContainerStyled> 
-        </ThemeProvider>
-    );
-};
+const CheckboxInput: React.FC<Props> = ({ name, label }) => (
+    <ThemeProvider theme={theme}>
+        <CheckboxInputContainerStyled>
+            <input type="checkbox" name={name} id={name} />
+            <LabelStyled 
+                target={name} 
+                isUppercased={false} 
+            >
+                {label}
+            </LabelStyled>
+        </CheckboxInputContainerStyled> 
+    </ThemeProvider>
+);
 
 export default CheckboxInput;
