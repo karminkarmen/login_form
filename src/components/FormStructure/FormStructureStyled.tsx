@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { centerized } from '../../configs/mixins';
 
-const FormContainerStyled = styled.div`
+const FormStructureStyled = styled.div`
     flex-direction: column;
     ${centerized}
     border-radius:  ${props => props.theme.radius.maximum};
@@ -9,4 +9,4 @@ const FormContainerStyled = styled.div`
     height: ${props => props.theme.width.mainElementWidth};
 `;
 
-export default FormContainerStyled;
+export default FormStructureStyled;

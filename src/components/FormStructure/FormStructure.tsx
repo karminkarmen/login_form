@@ -1,21 +1,31 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../configs/theme';
-import FormContainerStyled from './FormInputsContainerStyled';
+import FormContainerStyled from './FormStructureStyled';
 import FieldsetStyled from '../common/FieldsetStyled';
-import LabelStyled from '../common/LabelStyled';
 import LoginButton from '../LoginButton/LoginButton';
 import TextInput from '../TextInput/TextInput';
+import { loginStatuses } from '../../constants/statusesConsts';
+import ParagraphStyled from '../common/ParagraphStyled';
+import CheckboxInput from '../CheckboxInput/CheckboxInput';
 
 type Props = {
     formSubmitHandler: (e: any) => void, 
     onEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
     onPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
-    emailInfo: string
-    passwordInfo: string,
+    emailValidationInfo: string
+    passwordValidationInfo: string,
+    loginStatus: loginStatuses,
 }
 
-const FormInputs: React.FC<Props> = ({ formSubmitHandler, onEmailChange, emailInfo, onPasswordChange, passwordInfo }) => {
+const FormStructure: React.FC<Props> = ({ 
+    formSubmitHandler, 
+    onEmailChange, 
+    emailValidationInfo, 
+    onPasswordChange, 
+    passwordValidationInfo, 
+    loginStatus 
+}) => {
     return (
         <ThemeProvider theme={theme}>
             <form 
@@ -29,23 +39,19 @@ const FormInputs: React.FC<Props> = ({ formSubmitHandler, onEmailChange, emailIn
                             handler={onEmailChange} 
                             label={'email'} 
                             type={'text'} 
-                            validationInfo={emailInfo} 
+                            validationInfo={emailValidationInfo} 
                         />
                         <TextInput 
                             handler={onPasswordChange} 
                             label={'password'} 
                             type={'password'} 
-                            validationInfo={passwordInfo} 
+                            validationInfo={passwordValidationInfo} 
                         />
-                        <div>
-                            <input type="checkbox" name="remember" id="remember" />
-                            <LabelStyled 
-                                target={'remember'} 
-                                isUppercased={false} 
-                            >
-                                Remember me
-                            </LabelStyled>
-                        </div>
+                        <CheckboxInput 
+                            name={'remember'}
+                            label={'Remember me'}
+                        />
+                        { loginStatus === loginStatuses.REJECTED && <ParagraphStyled>Invalid email or password</ParagraphStyled>}
                     </FormContainerStyled>
                     <LoginButton />
                 </FieldsetStyled>
@@ -54,6 +60,6 @@ const FormInputs: React.FC<Props> = ({ formSubmitHandler, onEmailChange, emailIn
     );
 };
 
-export default FormInputs;
+export default FormStructure;
 
 

@@ -5,6 +5,7 @@ const theme = {
         main: '#F6DADF',
         secondary: '#9B1B3B',
         secondaryLighten: '#C2224A',
+        secondaryLightest: '#F6E0E5',
         background: '#FF4653',
     },
     radius: {

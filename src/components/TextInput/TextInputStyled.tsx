@@ -15,7 +15,7 @@ const InputStyled = styled.input.attrs((props: Props) => ({
     border: 2px solid ${props => props.theme.colors.main};
     padding: ${props => props.theme.paddings.medium};
     background: transparent;
-    color: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.secondaryLightest};
     margin-bottom: 1rem;
 
     ::placeholder {

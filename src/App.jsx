@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import Form from './components/Form/Form';
 import theme from './configs/theme';
-
-import { createGlobalStyle } from 'styled-components'
+import { centerized } from './configs/mixins';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -11,21 +10,18 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
 `
-
-const AppStyledDiv = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+const AppStyledContainer = styled.div`
+    ${centerized}
     height: 100vh;
 `;
 
 class App extends Component {
     render() {
         return (
-            <AppStyledDiv className="App">
+            <AppStyledContainer className="App">
                 <GlobalStyle theme={theme} />
                 <Form />
-            </AppStyledDiv>
+            </AppStyledContainer>
         );
     }
 }
