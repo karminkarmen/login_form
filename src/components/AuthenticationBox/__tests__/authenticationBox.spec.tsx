@@ -10,6 +10,8 @@ describe('<AuthenticationBox />', () => {
 
     it('matches snapshot', () => {
         const wrapper = shallow(<AuthenticationBox />);
+
+        console.log(wrapper.dive().html())
         expect(wrapper.debug()).toMatchSnapshot();
     });
 

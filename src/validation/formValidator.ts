@@ -1,10 +1,5 @@
 import messages from '../constants/messagesConsts';
 
-interface ValidationResult {
-    isValid: boolean;
-    errorMessage?: string;
-}
-
 const validatePassword = (password: string): string => {
     const validationOutput = [];
 
@@ -28,7 +23,7 @@ const validatePassword = (password: string): string => {
         return `${messages.invalidPasswordInfo} Your password needs: ${validationOutput.join(', ')}.`
     }
 
-    return validationOutput.join('\r\n');
+    return validationOutput.join('');
 }
 
 const validateEmail = (email: string): string => {
@@ -39,7 +34,7 @@ const validateEmail = (email: string): string => {
         validationOutput.push(messages.invalidEmailInfo);
     }
 
-    return validationOutput.join('\r\n');
+    return validationOutput.join('');
 }
 
 export const formValidator = (): {
@@ -51,5 +46,3 @@ export const formValidator = (): {
         validateEmail
     }
 }
-
-// TODO: use ValidationResult interface
