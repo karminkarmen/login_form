@@ -4,7 +4,7 @@ const validatePassword = (password: string): string => {
     const validationOutput = [];
 
     if (password.length < 6) {
-        validationOutput.push('minimum 6 digits')
+        validationOutput.push('minimum 6 characters')
     }
 
     if (password.search(/[0-9]/) < 0) {
