@@ -43,7 +43,6 @@ describe('<CheckboxInput />', () => {
     it('should render styled input', () => {
         const wrapper = shallow(<TextInput {...props} />);
 
-        // console.log(wrapper.find(TextInputStyled).debug());
         expect(wrapper.find(TextInputStyled)).toHaveLength(1);
     });
 

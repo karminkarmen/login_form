@@ -45,9 +45,6 @@ describe('<CheckboxInput />', () => {
     it('should render styled label which contains provided text', () => {
         const wrapper = shallow(<CheckboxInput {...props} />);
 
-        // console.log(wrapper.debug());
-        // console.log(wrapper.find(LabelStyled).debug());
-
         const label = wrapper.find(LabelStyled);
         expect(label.text()).toEqual(props.label);
     });
