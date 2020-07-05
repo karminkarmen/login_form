@@ -15,7 +15,7 @@ const LoginButtonStyled = styled.input.attrs(props => ({
     background: transparent;
     color: ${props => props.theme.colors.secondary};
     font-size: ${props => props.theme.fontSizes.medium};
-    font-family: ${props => props.theme.fontFamilies.main};
+    font-family: ${props => props.theme.fontFamilies.main}, sans-serif;
     transition: ${props => props.theme.transitionTime.default};
     background: ${props => props.theme.colors.main};
 

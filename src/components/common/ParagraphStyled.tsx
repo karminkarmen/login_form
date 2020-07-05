@@ -11,7 +11,7 @@ const ParagraphStyled = styled.p<Props>`
     color: ${props => props.theme.colors.main};
     letter-spacing: ${props => props.textSpace ? props.theme.letterSpacing.normal : 'normal'};
     font-size: ${props => props.bigFontSize ? props.theme.fontSizes.big : props.theme.fontSizes.normal};
-    font-family: ${props => props.theme.fontFamilies.main};
+    font-family: ${props => props.theme.fontFamilies.main}, sans-serif;
 `;
 
 export default ParagraphStyled;
