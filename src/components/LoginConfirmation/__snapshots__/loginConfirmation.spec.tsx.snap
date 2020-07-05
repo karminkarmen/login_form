@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginConfirmation /> matches snapshot 1`] = `
+"<ThemeProvider theme={{...}}>
+  <Styled(Tick) />
+  <styled.p bigFontSize={true} textSpace={true}>
+    login successful
+  </styled.p>
+</ThemeProvider>"
+`;
