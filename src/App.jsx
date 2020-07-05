@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import Form from './components/Form/Form';
+import AuthenticationBox from './components/AuthenticationBox/AuthenticationBox';
 import theme from './configs/theme';
 import { centered } from './configs/mixins';
 
@@ -20,7 +20,7 @@ class App extends Component {
         return (
             <AppStyledContainer className="App">
                 <GlobalStyle theme={theme} />
-                <Form />
+                <AuthenticationBox />
             </AppStyledContainer>
         );
     }

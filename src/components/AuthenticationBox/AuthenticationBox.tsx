@@ -2,13 +2,13 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../configs/theme';
 import FormStructure from '../FormStructure/FormStructure';
-import FormMainContainerStyled from './FormMainContainerStyled';
+import AuthenticationBoxMainContainerStyled from './AuthenticationBoxMainContainerStyled';
 import LoginConfirmation from '../LoginConfirmation/LoginConfirmation';
 import { formValidator } from '../../validation/formValidator';
 import loginHandler from '../../apiMock/loginHandler';
 import { LoginStatus } from '../../constants/statusesConsts';
 
-const Form: React.FC = () => {
+const AuthenticationBox: React.FC = () => {
     const [password, setPassword] = React.useState('');
     const [email, setEmail] = React.useState('');
 
@@ -39,23 +39,21 @@ const Form: React.FC = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <FormMainContainerStyled>
-            { (loginStatus === LoginStatus.REJECTED || loginStatus === LoginStatus.NOT_LOGGED_IN) && 
-                <FormStructure 
-                    formSubmitHandler={formSubmitHandler}
-                    onEmailChange={onEmailChange} 
-                    onPasswordChange={onPasswordChange} 
-                    emailValidationInfo={emailValidationInfo} 
-                    passwordValidationInfo={passwordValidationInfo}
-                    loginStatus={loginStatus}
-                />
-            }
-            {(loginStatus === LoginStatus.AUTHORIZED) && <LoginConfirmation />}
-            </FormMainContainerStyled>
+            <AuthenticationBoxMainContainerStyled>
+                { (loginStatus === LoginStatus.REJECTED || loginStatus === LoginStatus.NOT_LOGGED_IN) && 
+                    <FormStructure 
+                        formSubmitHandler={formSubmitHandler}
+                        onEmailChange={onEmailChange} 
+                        onPasswordChange={onPasswordChange} 
+                        emailValidationInfo={emailValidationInfo} 
+                        passwordValidationInfo={passwordValidationInfo}
+                        loginStatus={loginStatus}
+                    />
+                }
+                {(loginStatus === LoginStatus.AUTHORIZED) && <LoginConfirmation />}
+            </AuthenticationBoxMainContainerStyled>
         </ThemeProvider>
     );
 };
 
-export default Form;
-
-// TODO: verify type of res in callback
+export default AuthenticationBox;
