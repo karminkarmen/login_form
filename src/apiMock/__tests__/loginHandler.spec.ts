@@ -2,7 +2,7 @@ import credentials from '../../configs/credentials';
 import messages from '../../constants/messagesConsts';
 import loginHandler from '../loginHandler';
 
-describe('LOgin handler spec', () => {
+describe('Login handler spec', () => {
 
     const incorrectCredentials = {
         email: 'fake@credentials.com',
