@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginButton /> matches snapshot 1`] = `
+"<ThemeProvider theme={{...}}>
+  <styled.div>
+    <styled.input />
+  </styled.div>
+</ThemeProvider>"
+`;

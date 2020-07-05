@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormStructure /> matches snapshot 1`] = `
+"<ThemeProvider theme={{...}}>
+  <form method=\\"POST\\" action=\\"\\" onSubmit={[Function: formSubmitHandler]}>
+    <styled.fieldset>
+      <styled.div theme={{...}}>
+        <TextInput handler={[Function: onEmailChange]} label=\\"email\\" type=\\"text\\" validationInfo=\\"Mail validation info\\" />
+        <TextInput handler={[Function: onPasswordChange]} label=\\"password\\" type=\\"password\\" validationInfo=\\"Password validation info\\" />
+        <CheckboxInput name=\\"remember\\" label=\\"Remember me\\" />
+      </styled.div>
+      <LoginButton />
+    </styled.fieldset>
+  </form>
+</ThemeProvider>"
+`;
