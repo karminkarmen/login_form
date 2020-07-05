@@ -6,7 +6,7 @@ describe('<FormStructureStyled />', () => {
 
     it('matches snapshot', () => {
         const wrapper = mountWithTheme(<FormStructureStyled />);
-        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
 });

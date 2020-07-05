@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AuthenticationBoxMainContainerStyled /> matches snapshot 1`] = `"<div class=\\"sc-AxjAm csEKhz\\"></div>"`;
+exports[`<AuthenticationBoxMainContainerStyled /> matches snapshot 1`] = `
+"<styled.div>
+  <div className=\\"sc-AxjAm csEKhz\\" />
+</styled.div>"
+`;

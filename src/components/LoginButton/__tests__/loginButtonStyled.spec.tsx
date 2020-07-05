@@ -6,7 +6,7 @@ describe('<LoginButtonStyled />', () => {
 
     it('matches snapshot', () => {
         const wrapper = mountWithTheme(<LoginButtonStyled />);
-        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
     it('renders input with proper value and type', () => {

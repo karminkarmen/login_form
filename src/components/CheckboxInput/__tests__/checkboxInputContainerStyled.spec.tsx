@@ -6,7 +6,7 @@ describe('<CheckboxInputContainerStyled />', () => {
 
     it('matches snapshot', () => {
         const wrapper = mountWithTheme(<CheckboxInputContainerStyled />);
-        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
 });

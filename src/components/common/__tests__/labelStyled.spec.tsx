@@ -11,7 +11,7 @@ describe('<LabelStyled />', () => {
 
     it('matches snapshot', () => {
         const wrapper = mountWithTheme(<LabelStyled {...props} />);
-        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
     it('should render label html tag with specified for and target properties', () => {

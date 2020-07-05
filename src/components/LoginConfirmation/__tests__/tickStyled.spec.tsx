@@ -6,7 +6,7 @@ describe('<TickStyled />', () => {
 
     it('matches snapshot', () => {
         const wrapper = mountWithTheme(<TickStyled />);
-        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
 });

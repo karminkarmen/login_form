@@ -6,7 +6,7 @@ describe('<ParagraphStyled />', () => {
 
     it('matches snapshot', () => {
         const wrapper = mountWithTheme(<ParagraphStyled />);
-        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
 });

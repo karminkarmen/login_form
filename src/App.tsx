@@ -1,9 +1,14 @@
+import 'styled-components';
 import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import AuthenticationBox from './components/AuthenticationBox/AuthenticationBox';
-import theme from './configs/theme';
+import theme, { ThemeType } from './configs/theme';
 import { centered } from './configs/mixins';
 import { LoginStatus } from './constants/statusesConsts';
+
+declare module 'styled-components' {
+    export interface DefaultTheme extends ThemeType {}
+}
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -16,7 +21,7 @@ const AppStyledContainer = styled.div`
     height: 100vh;
 `;
 
-const App = () => {
+const App: React.FC = () => {
     const [loginStatus, setLoginStatus] = useState(LoginStatus.NOT_LOGGED_IN);
 
     return (

@@ -11,7 +11,7 @@ describe('<TextInputStyled />', () => {
 
     it('matches snapshot', () => {
         const wrapper = mountWithTheme(<TextInputStyled {...props} />);
-        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
     it('should render label html tag with specified type, name and id properties', () => {

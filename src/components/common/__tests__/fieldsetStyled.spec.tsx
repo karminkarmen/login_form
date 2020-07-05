@@ -6,7 +6,7 @@ describe('<FieldsetStyled />', () => {
 
     it('matches snapshot', () => {
         const wrapper = mountWithTheme(<FieldsetStyled />);
-        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
 });

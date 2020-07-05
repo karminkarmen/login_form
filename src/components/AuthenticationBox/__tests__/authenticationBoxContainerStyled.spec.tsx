@@ -6,7 +6,7 @@ describe('<AuthenticationBoxMainContainerStyled />', () => {
 
     it('matches snapshot', () => {
         const wrapper = mountWithTheme(<AuthenticationBoxMainContainerStyled />);
-        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
 });

@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LoginButtonStyled /> matches snapshot 1`] = `"<input type=\\"submit\\" class=\\"sc-AxirZ ldlRsw\\" value=\\"login\\">"`;
+exports[`<LoginButtonStyled /> matches snapshot 1`] = `
+"<styled.input>
+  <input type=\\"submit\\" value=\\"login\\" className=\\"sc-AxirZ fHAXkt\\" />
+</styled.input>"
+`;
