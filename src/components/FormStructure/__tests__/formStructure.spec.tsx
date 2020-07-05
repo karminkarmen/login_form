@@ -44,9 +44,8 @@ describe('<FormStructure />', () => {
     });
 
     it('should render additional message if login status is rejected', () => {
-        props.loginStatus = LoginStatus.REJECTED;
-
-        const wrapper = shallow(<FormStructure {...props} />);
+        const editedProps = { ...props, loginStatus: LoginStatus.REJECTED }
+        const wrapper = shallow(<FormStructure {...editedProps} />);
 
         expect(wrapper.find(ParagraphStyled)).toHaveLength(1);
 

@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import AuthenticationBox from './components/AuthenticationBox/AuthenticationBox';
 import theme from './configs/theme';
 import { centered } from './configs/mixins';
+import { LoginStatus } from './constants/statusesConsts';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -15,15 +16,15 @@ const AppStyledContainer = styled.div`
     height: 100vh;
 `;
 
-class App extends Component {
-    render() {
-        return (
-            <AppStyledContainer className="App">
-                <GlobalStyle theme={theme} />
-                <AuthenticationBox />
-            </AppStyledContainer>
-        );
-    }
-}
+const App = () => {
+    const [loginStatus, setLoginStatus] = useState(LoginStatus.NOT_LOGGED_IN);
+
+    return (
+        <AppStyledContainer className="App">
+            <GlobalStyle theme={theme} />
+            <AuthenticationBox loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
+        </AppStyledContainer>
+    );
+};
 
 export default App;

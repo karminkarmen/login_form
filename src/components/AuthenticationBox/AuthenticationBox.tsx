@@ -8,13 +8,17 @@ import { formValidator } from '../../validation/formValidator';
 import loginHandler from '../../apiMock/loginHandler';
 import { LoginStatus } from '../../constants/statusesConsts';
 
-const AuthenticationBox: React.FC = () => {
+type Props = {
+    loginStatus: LoginStatus,
+    setLoginStatus: (loginStatus: LoginStatus) => void;
+};
+
+const AuthenticationBox: React.FC<Props> = ({ loginStatus, setLoginStatus }) => {
     const [password, setPassword] = React.useState('');
     const [email, setEmail] = React.useState('');
 
     const [emailValidationInfo, setEmailValidationInfo] = React.useState('');
     const [passwordValidationInfo, setPasswordValidationInfo] = React.useState('');
-    const [loginStatus, setLoginStatus] = React.useState(LoginStatus.NOT_LOGGED_IN);
 
     const { validateEmail, validatePassword } = formValidator();
 
