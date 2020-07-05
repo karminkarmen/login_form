@@ -1,15 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import LoginConfirmation, { StyledTick } from './LoginConfirmation';
-import ParagraphStyled from '../common/ParagraphStyled';
-import messages from '../../constants/messagesConsts';
+import LoginConfirmation from '../LoginConfirmation';
+import ParagraphStyled from '../../common/ParagraphStyled';
+import messages from '../../../constants/messagesConsts';
+import TickStyled from '../TickStyled';
 
 describe('<LoginConfirmation />', () => {
 
     it('matches snapshot', () => {
-        const formattingButtons = shallow(<LoginConfirmation />);
-        expect(formattingButtons.debug()).toMatchSnapshot();
+        const wrapper = shallow(<LoginConfirmation />);
+        expect(wrapper.debug()).toMatchSnapshot();
     });
     
     it('should render styled paragraph', () => {
@@ -28,7 +29,7 @@ describe('<LoginConfirmation />', () => {
     it('should render styled tick icon', () => {
         const wrapper = shallow(<LoginConfirmation />);
 
-        expect(wrapper.find(StyledTick)).toHaveLength(1);
+        expect(wrapper.find(TickStyled)).toHaveLength(1);
     });
 
 });

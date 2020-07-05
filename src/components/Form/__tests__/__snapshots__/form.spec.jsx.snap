@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> matches snapshot 1`] = `
+"<ThemeProvider theme={{...}}>
+  <styled.div>
+    <FormStructure formSubmitHandler={[Function: formSubmitHandler]} onEmailChange={[Function: onEmailChange]} onPasswordChange={[Function: onPasswordChange]} emailValidationInfo=\\"\\" passwordValidationInfo=\\"\\" loginStatus=\\"NOT_LOGGED_IN\\" />
+  </styled.div>
+</ThemeProvider>"
+`;

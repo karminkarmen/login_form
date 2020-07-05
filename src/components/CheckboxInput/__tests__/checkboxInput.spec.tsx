@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import CheckboxInput from './CheckboxInput';
-import LabelStyled from '../common/LabelStyled';
+import CheckboxInput from '../CheckboxInput';
+import LabelStyled from '../../common/LabelStyled';
+import CheckboxInputContainerStyled from '../CheckboxInputContainerStyled';
 
 describe('<CheckboxInput />', () => {
 
@@ -12,8 +13,8 @@ describe('<CheckboxInput />', () => {
     };
 
     it('matches snapshot', () => {
-        const formattingButtons = shallow(<CheckboxInput {...props} />);
-        expect(formattingButtons.debug()).toMatchSnapshot();
+        const wrapper = shallow(<CheckboxInput {...props} />);
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
     it('should render input with checkbox type', () => {
@@ -47,5 +48,11 @@ describe('<CheckboxInput />', () => {
 
         const label = wrapper.find(LabelStyled);
         expect(label.text()).toEqual(props.label);
+    });
+
+    it('should render styled contianer', () => {
+        const wrapper = shallow(<CheckboxInput {...props} />);
+
+        expect(wrapper.find(CheckboxInputContainerStyled)).toHaveLength(1);
     });
 });

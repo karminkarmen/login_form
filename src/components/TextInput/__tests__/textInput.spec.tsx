@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import TextInput from './TextInput';
-import LabelStyled from '../common/LabelStyled';
-import TextInputStyled from './TextInputStyled';
-import ParagraphStyled from '../common/ParagraphStyled';
+import TextInput from '../TextInput';
+import LabelStyled from '../../common/LabelStyled';
+import TextInputStyled from '../TextInputStyled';
+import ParagraphStyled from '../../common/ParagraphStyled';
 
 describe('<CheckboxInput />', () => {
 
@@ -16,8 +16,8 @@ describe('<CheckboxInput />', () => {
     };
 
     it('matches snapshot', () => {
-        const formattingButtons = shallow(<TextInput {...props} />);
-        expect(formattingButtons.debug()).toMatchSnapshot();
+        const wrapper = shallow(<TextInput {...props} />);
+        expect(wrapper.debug()).toMatchSnapshot();
     });
 
     it('should render styled label', () => {
